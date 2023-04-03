@@ -1,0 +1,11 @@
+# git-config(1)
+
+[core]
+	editor = /usr/bin/vim
+
+[init]
+	defaultBranch = default
+
+[user]
+	name = Rob B
+	email = github@0x7e.net
