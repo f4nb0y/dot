@@ -7,3 +7,7 @@ alias md=mkdir
 alias rd=rmdir
 
 bindkey " " magic-space
+
+autoload -Uz compinit && compinit
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
