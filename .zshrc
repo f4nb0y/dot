@@ -10,4 +10,4 @@ bindkey " " magic-space
 
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
-complete -C '/usr/local/bin/aws_completer' aws
+[[ -x /usr/local/bin/aws_completer ]] && complete -C /usr/local/bin/aws_completer aws
