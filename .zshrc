@@ -1,10 +1,12 @@
 # zsh(1)
 
+export EDITOR=$(whence vim)
 PROMPT='%B%n@%m %3~ %# %b'
 
 alias ll='ls -al'
 alias md=mkdir
 alias rd=rmdir
+alias vi=$EDITOR
 
 bindkey " " magic-space
 
