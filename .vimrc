@@ -15,11 +15,16 @@ set splitbelow
 set splitright
 
 set incsearch
-augroup incsearch-highlight
+augroup incsearch_highlight
     autocmd!
     autocmd CmdlineEnter /,\? :set hlsearch
     autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
+augroup end
+
+augroup python_autoformat
+    autocmd!
+    autocmd BufWritePre *.py Black
+augroup end
 
 " https://github.com/junegunn/vim-plug#installation
 call plug#begin()
