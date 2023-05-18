@@ -3,6 +3,7 @@
 export EDITOR=$(whence vim)
 PS1='%(2L,(%L) ,)%B%n@%m %3~ %# %b'
 
+alias dot='git --git-dir=$HOME/.dot --work-tree=$HOME'
 alias ll='ls -al'
 alias md=mkdir
 alias rd=rmdir
