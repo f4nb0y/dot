@@ -1,6 +1,7 @@
 " vim(1)
 
 set nocompatible
+set directory=~/.vimswap//
 set encoding=utf-8
 
 set autoindent
