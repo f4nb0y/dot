@@ -13,7 +13,17 @@ bindkey " " magic-space
 
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
-[[ -x /usr/local/bin/aws_completer ]] && complete -C /usr/local/bin/aws_completer aws
+if [[ $commands[aws_completer] ]] ; then
+    complete -C aws_completer aws
+fi
+if [[ $commands[kubectl] ]] ; then
+    # https://notes.eliasnorrby.com/zsh/lazy-load-completion
+    kubectl() {
+        unfunction $0
+        source <(kubectl completion zsh)
+        $0 "$@"
+    }
+fi
 
 # Activate virtual environment in a subshell
 function activate-venv() {
