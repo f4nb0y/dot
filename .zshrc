@@ -16,14 +16,6 @@ autoload bashcompinit && bashcompinit
 if [[ $commands[aws_completer] ]] ; then
     complete -C aws_completer aws
 fi
-if [[ $commands[kubectl] ]] ; then
-    # https://notes.eliasnorrby.com/zsh/lazy-load-completion
-    kubectl() {
-        unfunction $0
-        source <(kubectl completion zsh)
-        $0 "$@"
-    }
-fi
 
 # Activate virtual environment in a subshell
 function activate-venv() {
