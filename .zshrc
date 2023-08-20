@@ -9,7 +9,11 @@ alias md=mkdir
 alias rd=rmdir
 alias vi=$EDITOR
 
-bindkey " " magic-space
+bindkey ' ' magic-space
+bindkey '^I' complete-word
+
+setopt AUTO_LIST
+setopt NO_BEEP
 
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
