@@ -4,7 +4,7 @@
 	editor = /usr/bin/vim
 
 [init]
-	defaultBranch = default
+	defaultBranch = main
 
 [user]
 	name = Rob B

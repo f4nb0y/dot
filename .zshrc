@@ -13,6 +13,7 @@ bindkey ' ' magic-space
 bindkey '^I' complete-word
 
 setopt AUTO_LIST
+setopt HIST_IGNORE_DUPS
 setopt NO_BEEP
 
 autoload -Uz compinit && compinit
