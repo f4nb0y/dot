@@ -34,6 +34,7 @@ augroup python_autoformat
     autocmd!
     autocmd BufWritePre *.py Black
 augroup end
+let g:black_skip_string_normalization = 1
 
 autocmd Filetype typescript setlocal shiftwidth=2 softtabstop=2
 let g:prettier#autoformat = 1
