@@ -1,42 +1,29 @@
 " vim(1)
 
 set nocompatible
-set directory=~/.vimswap//
-set encoding=utf-8
 
 set autoindent
+set backspace=indent
+set directory=~/.vimswap//
+set encoding=utf-8
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-
+set incsearch
+set listchars=space:\\u00b7,tab:\ \ \\u2192
 set report=0
 set ruler
-
+set shiftwidth=4
+set softtabstop=4
 set splitbelow
 set splitright
 
-" https://github.com/junegunn/vim-plug#installation
-call plug#begin()
-    " https://github.com/prettier/vim-prettier
-    Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --production' }
-    " https://black.readthedocs.io/en/stable/integrations/editors.html#vim
-    Plug 'psf/black', { 'branch': 'stable' }
-call plug#end()
+filetype plugin indent on
+syntax on
 
-set incsearch
-augroup incsearch_highlight
+augroup highlight
     autocmd!
-    autocmd CmdlineEnter /,\? :set hlsearch
-    autocmd CmdlineLeave /,\? :set nohlsearch
+    autocmd CmdlineEnter /,\? set hlsearch
+    autocmd CmdlineLeave /,\? set nohlsearch
+    autocmd FileType * match Todo /\s\+$/
+    autocmd InsertEnter * match none
+    autocmd InsertLeave * match Todo /\s\+$/
 augroup end
-
-augroup python_autoformat
-    autocmd!
-    autocmd BufWritePre *.py Black
-augroup end
-let g:black_skip_string_normalization = 1
-
-autocmd Filetype typescript setlocal shiftwidth=2 softtabstop=2
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#config#single_quote = 'true'
