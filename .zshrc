@@ -1,13 +1,11 @@
 # zsh(1)
 
 export EDITOR=$(whence vim)
-PS1='%(2L,(%L) ,)%B%n@%m %3~ %# %b'
 
 alias dot='git --git-dir=$HOME/.dot --work-tree=$HOME'
 alias ll='ls -al'
 alias md=mkdir
 alias rd=rmdir
-alias vi=$EDITOR
 
 bindkey ' ' magic-space
 bindkey '^I' complete-word
@@ -15,20 +13,29 @@ bindkey '^I' complete-word
 setopt AUTO_LIST
 setopt HIST_IGNORE_DUPS
 setopt NO_BEEP
+setopt PROMPT_SUBST
 
 autoload -Uz compinit && compinit
-autoload bashcompinit && bashcompinit
-if [[ $commands[aws_completer] ]] ; then
+typeset -T PS ps=('%B%n@%m %3~ %# %b') ''
+
+if [[ $commands[aws] ]] ; then
+    autoload -Uz bashcompinit && bashcompinit
     complete -C aws_completer aws
 fi
 
-# Activate virtual environment in a subshell
-function activate-venv() {
-    if [[ ! -f $1/pyvenv.cfg ]] ; then
-        print "Cannot find $1/pyvenv.cfg" >&2
-        return 1
-    fi
+if [[ $commands[git] ]] ; then
+    autoload -Uz vcs_info
+    precmd_vcs_info() { vcs_info }
+    precmd_functions+=( precmd_vcs_info )
+    ps=('${vcs_info_msg_0_}' $ps)
 
-    VENV=$( cd $1 && pwd )
-    VIRTUAL_ENV=$VENV PATH=$VENV/bin:$PATH $SHELL
-}
+    zstyle ':vcs_info:*' enable git
+    zstyle ':vcs_info:git:*' formats '(%b%u%c) '
+    zstyle ':vcs_info:git:*' actionformats '%a> '
+    zstyle ':vcs_info:git:*' check-for-changes true
+    zstyle ':vcs_info:git:*' unstagedstr '*'
+    zstyle ':vcs_info:git:*' stagedstr '+'
+fi
+
+ps=('%(0?,,%B%F{red}?%? %f%b)' $ps)
+PS1=$PS
