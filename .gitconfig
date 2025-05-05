@@ -9,3 +9,9 @@
 [user]
 	name = Rob B
 	email = github@0x7e.net
+
+[alias]
+	l = log --oneline
+	l10 = log --oneline -10
+	ll = log --name-status
+	ll1 = log --name-status -1
