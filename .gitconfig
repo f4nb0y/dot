@@ -1,17 +1,19 @@
 # git-config(1)
 
-[core]
-	editor = /usr/bin/vim
-
-[init]
-	defaultBranch = main
-
 [user]
 	name = Rob B
 	email = github@0x7e.net
 
 [alias]
-	l = log --oneline
-	l10 = log --oneline -10
-	ll = log --name-status
-	ll1 = log --name-status -1
+	alias	= ! "git config --list | sed -En 's,^alias\\.([^=]+)=,\\1	,p'"
+	b	= branch --all
+	d	= diff --ignore-space-change
+	ds	= diff --ignore-space-change --staged
+	l	= log --oneline
+	l10	= log --oneline -10
+	ll	= log --name-status
+	ll1	= log --name-status -1
+	s	= status
+
+[clone]
+	defaultRemoteName = github
