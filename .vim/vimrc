@@ -4,7 +4,7 @@ set nocompatible
 
 set autoindent
 set backspace=indent
-set directory=~/.vimswap//
+set directory=~/.vim/swap//
 set encoding=utf-8
 set expandtab
 set incsearch
@@ -15,6 +15,7 @@ set shiftwidth=4
 set softtabstop=4
 set splitbelow
 set splitright
+set viminfofile=~/.vim/info
 
 filetype plugin indent on
 syntax on
