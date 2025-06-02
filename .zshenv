@@ -1,0 +1,4 @@
+# zsh(1)
+
+export SHELL_SESSIONS_DISABLE=1
+ZDOTDIR=~/.zsh

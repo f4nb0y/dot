@@ -25,6 +25,6 @@ setopt NO_BEEP
 setopt PROMPT_SUBST
 
 autoload -Uz compinit && compinit
-for F in ~/.zshrc.d/* ; do
+for F in $ZDOTDIR/.zshrc.d/* ; do
     . $F
 done
