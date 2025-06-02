@@ -1,0 +1,6 @@
+# AWS autocomplete
+
+if [[ $commands[aws] ]] ; then
+    autoload -Uz bashcompinit && bashcompinit
+    complete -C aws_completer aws
+fi

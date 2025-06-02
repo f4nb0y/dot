@@ -1,0 +1,3 @@
+# Non-zero exit status
+
+PS1='%(0?,,%B%F{red}?%? %f%b)'$PS1
