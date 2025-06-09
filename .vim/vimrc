@@ -19,6 +19,7 @@ set viminfofile=~/.vim/info
 
 filetype plugin indent on
 syntax on
+colorscheme dot
 
 augroup highlight
     autocmd!
