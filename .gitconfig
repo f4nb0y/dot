@@ -7,8 +7,9 @@
 [alias]
 	alias	= ! "git config --list | sed -En 's,^alias\\.([^=]+)=,\\1	,p'"
 	b	= branch --all
-	d	= diff --ignore-space-change
-	ds	= diff --ignore-space-change --staged
+	d	= diff --ignore-blank-lines --ignore-space-change
+	ds	= diff --ignore-blank-lines --ignore-space-change --staged
+	dd	= diff --name-status
 	l	= log --oneline
 	l10	= log --oneline -10
 	ll	= log --name-status
