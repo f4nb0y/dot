@@ -6,7 +6,7 @@ if [[ $commands[git] ]] ; then
     precmd_functions+=( precmd_vcs_info )
 
     zstyle ':vcs_info:*' enable git
-    zstyle ':vcs_info:git:*' formats '(%b%u%c) '
+    zstyle ':vcs_info:git:*' formats '(%r:%b%u%c) '
     zstyle ':vcs_info:git:*' actionformats '%a> '
     zstyle ':vcs_info:git:*' check-for-changes true
     zstyle ':vcs_info:git:*' unstagedstr '*'
