@@ -1,5 +1,8 @@
 # git-config(1)
 
+[include]
+	path = config.local
+
 [user]
 	name = Rob B
 	email = github@0x7e.net
@@ -18,3 +21,9 @@
 
 [clone]
 	defaultRemoteName = github
+
+[commit]
+	gpgSign = true
+
+[tag]
+	gpgSign = true
