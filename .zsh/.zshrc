@@ -6,6 +6,11 @@ path=(
     $path
 )
 
+fpath=(
+    /opt/local/share/zsh/site-functions
+    $fpath
+)
+
 export EDITOR=$(whence vim)
 PS1='%B%n@%m %3~ %# %b'
 
