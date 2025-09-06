@@ -26,7 +26,7 @@ dot push --set-upstream origin main
 
 ```
 D=$(mktemp -d)
-git clone https://github.com/f4nb0y/dot.git $D
+git clone --origin github https://github.com/f4nb0y/dot.git $D
 mv $D/.git $HOME/.dot
 
 alias dot='git --git-dir=$HOME/.dot --work-tree=$HOME'
