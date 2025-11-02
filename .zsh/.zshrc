@@ -20,6 +20,7 @@ alias ll='ls -al'
 alias md=mkdir
 alias rd=rmdir
 
+bindkey -e
 bindkey ' ' magic-space
 bindkey '^I' complete-word
 

@@ -1,0 +1,25 @@
+# Python virtual env
+
+venv() {
+    if (( $# == 0 )) ; then
+        print "Usage: venv <path>" >&2
+        return 1
+    elif [[ ! -f $1/pyvenv.cfg ]] ; then
+        print "Cannot find $1/pyvenv.cfg" >&2
+        return 1
+    fi
+
+    VENV=$( cd $1 && pwd )
+    VIRTUAL_ENV=$VENV PATH=$VENV/bin:$PATH $SHELL
+}
+
+precmd_venv_info() {
+    if [[ -n "$VIRTUAL_ENV" ]] ; then
+        venv_info=" venv:$(basename $VIRTUAL_ENV)"
+    else
+        venv_info=
+    fi
+}
+precmd_functions+=( precmd_venv_info )
+
+RPS1='${venv_info}'$RPS1
