@@ -25,5 +25,8 @@
 [commit]
 	gpgSign = true
 
+[push]
+	autoSetupRemote = true
+
 [tag]
 	gpgSign = true
