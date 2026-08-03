@@ -1,6 +1,7 @@
 # zsh(1)
 
 path=(
+    ~/.local/bin
     /opt/local/bin
     /opt/local/sbin
     $path
